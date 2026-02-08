@@ -10,17 +10,12 @@ script:
 
 deploy:
   provider: elasticbeanstalk
-  edge: true
-  region: "us-east-1"
-  app: "new-frontend"
-  env: "New-frontend-env"
-  # FIX 1: Removed the trailing space in the bucket name string
-  bucket_name: "elasticbeanstalk-us-east-1-262015274954"
-  bucket_path: "new-frontend"
+  region: "us-west-2"
+  app: "frontend"
+  env: "Frontend-env"
+  bucket_name: "elasticbeanstalk-us-west-2-262015274954"
+  bucket_path: "frontend"
   on:
     branch: main
-  # FIX 2: Added skip_cleanup to prevent Travis from deleting the build files
-  skip_cleanup: true
-  # FIX 3: Removed quotes from secret key variable for consistency
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: "$AWS_SECRET_KEY"
